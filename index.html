@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#15201c">
+  <meta name="description" content="城墙防线：一款可在浏览器试玩的移动端 Canvas 防守游戏。">
+  <title>城墙防线 · 浏览器试玩版</title>
+  <style>
+    :root { color-scheme: dark; font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #101a18; }
+    body { display: grid; place-items: center; min-height: 100dvh; overflow: hidden; }
+    .layout { display: flex; align-items: center; justify-content: center; gap: 4.5vw; width: 100%; padding: 12px; }
+    .intro { width: min(32vw, 340px); color: #e3e8db; }
+    .eyebrow { color: #d4be83; font-size: 12px; font-weight: 700; letter-spacing: .22em; }
+    h1 { font-size: clamp(34px, 4vw, 56px); line-height: 1.1; margin: 15px 0; }
+    .intro p { line-height: 1.8; color: #b9c9bf; font-size: 15px; }
+    .intro ul { padding-left: 1.25em; color: #d7dfd3; line-height: 2; font-size: 14px; }
+    .note { border-left: 3px solid #d4be83; padding-left: 12px; margin-top: 30px; }
+    .stage { position: relative; width: min(390px, calc(100dvh * 390 / 844), 100vw); aspect-ratio: 390 / 844; border: 1px solid #7d836c; border-radius: 25px; overflow: hidden; box-shadow: 0 22px 75px #0009; background: #50634d; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; -webkit-user-select: none; }
+    @media (max-width: 720px) { .layout { padding: 0; } .intro { display: none; } .stage { border: 0; border-radius: 0; box-shadow: none; width: min(100vw, calc(100dvh * 390 / 844)); } }
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <section class="intro" aria-label="游戏说明">
+      <div class="eyebrow">INTERACTIVE GAME DEMO</div>
+      <h1>城墙防线</h1>
+      <p>守住城墙。点击草地指定炮击落点，三座炮台会根据位置与冷却状态响应。敌人触墙即结束本局。</p>
+      <ul><li>支持双指快速点击</li><li>轻松、标准、挑战三档难度</li><li>可暂停，支持独立音量设置</li></ul>
+      <p class="note">个人练习项目的浏览器试玩版，保留原版画面与声音。</p>
+    </section>
+    <div class="stage"><canvas id="game" aria-label="城墙防线游戏画面"></canvas></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
